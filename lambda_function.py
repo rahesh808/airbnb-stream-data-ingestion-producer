@@ -29,6 +29,8 @@ def generate_mock_booking_data_more_than_one_day():
     start_date = datetime.now()  # 30 days from now
     end_date = start_date + timedelta(days=7)  # 7 days duration
     price = round(random.uniform(10.0, 500.0), 2)  # Mock price in USD
+    duration = (end_date - start_date).days
+    
     
     # Construct mock data structure
     mock_booking_data = {
@@ -39,6 +41,7 @@ def generate_mock_booking_data_more_than_one_day():
         "startDate": start_date.strftime('%Y-%m-%d'),
         "endDate": end_date.strftime('%Y-%m-%d'),
         "price": price,
+        "duration": duration
         
     }
     
@@ -51,9 +54,12 @@ def generate_mock_booking_data_one_day():
     property_id = random.randint(1000, 9999)
     location = "Chennai, India"
     today = datetime.now()
+    start = today 
+    end = today
     start_date = today.strftime('%Y-%m-%d')  # Same date as today
     end_date = today.strftime('%Y-%m-%d')  # Same date as today
     price = round(random.uniform(10.0, 500.0), 2)  # Mock price in USD
+    duration = (start - end).days
     
     # Construct mock data structure
     mock_booking_data = {
@@ -64,6 +70,7 @@ def generate_mock_booking_data_one_day():
         "startDate": start_date,
         "endDate": end_date,
         "price": price,
+        "duration": duration
     }
     
     return mock_booking_data
