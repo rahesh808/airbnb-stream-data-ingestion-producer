@@ -7,12 +7,8 @@ phases:
       - echo "Installing dependencies..."
   build:
     commands:
-      - mkdir lib
       - echo "Zipping deployment package..."
-      - cd lib
-      - zip -r9 ../deployment_package.zip .
-      - cd ..
-      - zip -g deployment_package.zip lambda_function.py
+      - zip deployment_package.zip lambda_function.py
   post_build:
     commands:
       - echo "Uploading to S3..."
